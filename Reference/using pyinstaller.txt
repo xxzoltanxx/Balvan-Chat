@@ -1,5 +1,0 @@
-To Package e.g main.py as exe:
-
-python -m PyInstaller main.py --add-binary balvanlogo.png:Images
-
---add-binary is for adding images,etc...
