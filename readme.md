@@ -12,6 +12,7 @@ Additionally, Balvan Chat features complete E2E enryption using AES512, with all
 - Password is written nowhere inside the app, all participants to the chat must choose a password via some other means, e.g. somewhere IRL.
 - Tkinter GUI
 - Name choosing
+- Multi-client architecture
 
 
 ![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/screenshotchat.jpg?raw=true)
