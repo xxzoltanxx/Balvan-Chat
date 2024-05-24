@@ -31,7 +31,6 @@ class ClientConnection:
                 data = self._connection.recv(MAX_SIZE_MESSAGE)
             except:
                 pass
-            #TODO STATUS MESSAGE HERE ON DISCONNECT
             if (self._communicatorMutex != None):
                 self._communicatorMutex.acquire()
             if len(data) == 0:
@@ -49,7 +48,6 @@ class ClientConnection:
                 stringToSend = self._sendBuffer.get(block=False)
                 self._sendLock.release()
                 self._connection.sendall(stringToSend)
-                #TODO STATUS HERE
             except:
                 self._sendLock.release()
             
