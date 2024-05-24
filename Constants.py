@@ -1,0 +1,10 @@
+from enum import Enum
+
+MAX_SIZE_MESSAGE = 1024
+DEFAULT_PORT=15500
+TEST_SALT=b'1'
+# in seconds
+SEND_COOLDOWN = 0.02
+
+STATUS_OK = '0'
+STATUS_NOK = '1'

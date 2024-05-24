@@ -1,0 +1,18 @@
+import threading
+
+t1 = threading.Thread(target = function, daemon = True, args=("ABC",))
+t2 = threading.Thread(target = function, daemon = True)
+
+data_lock = threading.Lock()
+
+to acquire a mutex:
+data_lock.acquire()
+
+to release a mutex:
+data_lock.release()
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
