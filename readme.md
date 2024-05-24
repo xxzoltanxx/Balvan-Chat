@@ -14,7 +14,7 @@ Additionally, Balvan Chat features complete E2E enryption using AES512, with all
 - Name choosing
 
 
-![alt text](https://github.com/xxzoltanxx/Secure-Chat/blob/master/Images/screenshotchat.jpg?raw=true)
+![alt text](https://github.com/xxzoltanxx/Secure-Chat/blob/master/screenshotchat.jpg?raw=true)
 
 ## Usage
 
