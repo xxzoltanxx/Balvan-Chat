@@ -7,15 +7,15 @@ import json
 
 class Encryptor:
     def __init__(self, password, salt):
-        self._salt = salt.encode('utf-8')
+        encoded_salt = salt.encode('utf-8')
         self._kdf = PBKDF2HMAC(
             algorithm=hashes.SHA256(),
             length=32,
-            salt=self._salt,
+            salt=encoded_salt,
             iterations=PBKDF_ITERATIONS,
         )
-        self._key = base64.urlsafe_b64encode(self._kdf.derive(password.encode('utf-8')))
-        self._fernet = Fernet(self._key)
+        key = base64.urlsafe_b64encode(self._kdf.derive(password.encode('utf-8')))
+        self._fernet = Fernet(key)
 
 
     #return bytearray
