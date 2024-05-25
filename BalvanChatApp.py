@@ -77,21 +77,28 @@ class BalvanChatApp:
         name = tk.Entry(win, width=20)
         name.grid(row=3, column=0)
 
-        l3 = tk.Label(win, text='PASSWORD:')
+        l3 = tk.Label(win, text='PASSWORD (SHARE WITH CLIENT):')
         l3.grid(row=4, column=0)
 
         password = tk.Entry(win, width=20, show='*')
         password.grid(row=5, column=0)
 
-        def destroyCallback(input, password, name):
+        l4 = tk.Label(win, text='SALT (SHARE WITH CLIENT):')
+        l4.grid(row=6, column=0)
+
+        salt = tk.Entry(win, width=20, show='*')
+        salt.grid(row=7, column=0)
+
+        def destroyCallback(input, password, name, salt):
            ipText = input.get()
            passText = password.get()
            nameText = name.get()
+           saltText = salt.get()
            win.destroy()
-           callback(ipText, passText, nameText)
+           callback(ipText, passText, nameText, saltText)
 
-        b = tk.Button(win, text="Connect", command=partial(destroyCallback, ip, password, name))
-        b.grid(row=7, column=0, pady=5)
+        b = tk.Button(win, text="Connect", command=partial(destroyCallback, ip, password, name, salt))
+        b.grid(row=9, column=0, pady=5)
 
     def popup_server(self, callback):
         
@@ -105,20 +112,27 @@ class BalvanChatApp:
         name = tk.Entry(win, width=20)
         name.grid(row=2, column=0)
 
-        l3 = tk.Label(win, text='PASSWORD:')
+        l3 = tk.Label(win, text='PASSWORD (SHARE WITH CLIENT):')
         l3.grid(row=3, column=0)
 
         password = tk.Entry(win, width=20, show='*')
         password.grid(row=4, column=0)
 
-        def destroyCallback(password, name):
+        l4 = tk.Label(win, text='SALT (SHARE WITH CLIENT):')
+        l4.grid(row=5, column=0)
+
+        salt = tk.Entry(win, width=20, show='*')
+        salt.grid(row=6, column=0)
+
+        def destroyCallback(password, name, salt):
            passText = password.get()
            nameText = name.get()
+           saltText = salt.get()
            win.destroy()
-           callback(passText, nameText)
+           callback(passText, nameText, saltText)
 
-        b = tk.Button(win, text="Connect", command=partial(destroyCallback, password, name))
-        b.grid(row=5, column=0, pady=5)
+        b = tk.Button(win, text="Connect", command=partial(destroyCallback, password, name, salt))
+        b.grid(row=8, column=0, pady=5)
 
     def addToTextField(self, text, tag):
         self._text_area.configure(state='normal')

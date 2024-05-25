@@ -36,19 +36,19 @@ class Controller:
         encryptedMessage = self._encryptor.encrypt(data)
         self._communicator.sendMessage(encryptedMessage)
 
-    def connect(self, ip, password, name):
+    def connect(self, ip, password, name, salt):
         self._password = password
-        self._encryptor = Encryptor.Encryptor(self._password)
+        self._encryptor = Encryptor.Encryptor(self._password, salt)
         self._name = name
         try:
             self._communicator = Client.ClientCommunicator.ClientCommunicator(self, ip)
         except:
             pass
 
-    def runServer(self, password, name):
+    def runServer(self, password, name, salt):
         self._name = name
         self._password = password
-        self._encryptor = Encryptor.Encryptor(self._password)
+        self._encryptor = Encryptor.Encryptor(self._password, salt)
         try:
             self._communicator = Server.ServerCommunicator.ServerCommunicator(self)
         except:

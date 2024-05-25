@@ -72,4 +72,4 @@ class ServerCommunicator(BaseCommunicator.Communicator):
         }
         encryptedData = self._controller.getEncryptor().encrypt(data)
 
-        self.updateAllClients(self, address, encryptedData)
+        self.updateAllClients(address, encryptedData)

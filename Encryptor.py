@@ -6,8 +6,8 @@ from Constants import *
 import json
 
 class Encryptor:
-    def __init__(self, password):
-        self._salt = TEST_SALT
+    def __init__(self, password, salt):
+        self._salt = salt.encode('utf-8')
         self._kdf = PBKDF2HMAC(
             algorithm=hashes.SHA256(),
             length=32,
