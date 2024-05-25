@@ -12,7 +12,7 @@ class Encryptor:
             algorithm=hashes.SHA256(),
             length=32,
             salt=self._salt,
-            iterations=500,
+            iterations=PBKDF_ITERATIONS,
         )
         self._key = base64.urlsafe_b64encode(self._kdf.derive(password.encode('utf-8')))
         self._fernet = Fernet(self._key)
