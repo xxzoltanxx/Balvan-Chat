@@ -2,30 +2,27 @@
 
 ![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/Images/balvanlogo.png?raw=true)
 
-Balvan Chat is a Server/Client Self-Hosted desktop chat application.
-The connection is done directly to the server's IP address, and there are no middlemen in the process of your message being sent from client to server and vice versa.
-Additionally, Balvan Chat features complete E2E enryption using AES512, with all data being encrypted with a passphrase all participants agreed on.
+Balvan Chat is a server/client self-hosted desktop chat application. It ensures secure communication with direct connections to the server's IP address, eliminating any middlemen. With complete end-to-end encryption (E2E) using AES512, your data remains private and secure, encrypted with a passphrase known only to the chat participants.
 
 ## Features
 
-- Complete End to End encryption using Fernet (AES512 + DES)
-- Password is written nowhere inside the app, all participants to the chat must choose a password via some other means, e.g. somewhere IRL.
-- Tkinter GUI
-- Name choosing
-- Multi-client architecture
+- Complete End-to-End Encryption: Utilizes Fernet (AES512 + DES) for robust security.
+- Secure Passphrase: The password is never stored within the app; participants must agree on a passphrase via an external method, e.g., in person.
+- User-Friendly Interface: Built with Tkinter GUI for easy interaction.
+- Customizable Usernames: Allows users to choose their display names.
+- Multi-Client Architecture: Supports multiple clients connecting to the server.
 
 
 ![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/screenshotchat.jpg?raw=true)
 
 ## Usage
 
-- Connect to a server by choosing Start -> Connect
-- Start a server by choosing Start -> Start Server
+- Connect to a Server: Choose Start -> Connect.
+- Start a Server: Choose Start -> Start Server.
 
-NOTICE: When you start a server, your LOCAL IP is listed in the chat, you will have to find out your external IP address to give to clients some other way,
-e.g. by googling "what is my ip"
+Note: When starting a server, your local IP address is displayed in the chat. You will need to provide your external IP address to clients, which can be found by searching "what is my IP" online.
 
-NOTICE: If connection is not established, you may need to open port 15500 on your router.
+Note: If a connection cannot be established, ensure port 15500 is open on your router.
 
 ## Installation and Running
 
@@ -53,7 +50,7 @@ pip install pyinstaller
 2) Inside the directory where the repository is, run:
 
 ```bash
-python -m PyInstaller main.py --add-binary balvanlogo.png:Images
+python -m PyInstaller main.py --add-binary Images/balvanlogo.png:Images
 ```
 
 3) Your exe will get packaged inside the "dist/main" folder. Now we only have to place the splash image in the appropriate place:
