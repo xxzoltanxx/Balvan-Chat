@@ -25,7 +25,7 @@ class ClientConnection:
         self._sendLock.release()
 
     def receiverLoop(self):
-        while True and not self.shouldTerminate:  
+        while not self.shouldTerminate:  
             data = b''
             try:
                 data = self._connection.recv(MAX_SIZE_MESSAGE)
@@ -42,7 +42,7 @@ class ClientConnection:
                 self._communicatorMutex.release()
 
     def sendLoop(self):
-        while True and not self.shouldTerminate:
+        while not self.shouldTerminate:
             try:
                 self._sendLock.acquire()
                 stringToSend = self._sendBuffer.get(block=False)
