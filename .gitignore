@@ -50,3 +50,4 @@ package.nls.*.json
 l10n/
 native_locator/target/**
 native_locator/Cargo.lock
+info.txt
