@@ -123,6 +123,7 @@ class BalvanChatApp:
     def addToTextField(self, text, tag):
         self._text_area.configure(state='normal')
         self._text_area.insert(tk.INSERT,'\n' + text, tag)
+        self._text_area.see(tk.END)
         self._text_area.configure(state='disabled')
 
     def sendClicked(self):
