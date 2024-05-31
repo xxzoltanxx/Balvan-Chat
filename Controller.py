@@ -1,16 +1,13 @@
 import Encryptor
-import BalvanChatApp
 import Server.ServerCommunicator
 import Client.ClientCommunicator
 import Constants
 import threading
 import queue
-import json
 
 class Controller:
     def __init__(self):
         self._text = ''
-        self._password = '1'
         self._encryptor = None
         self._name = ''
         self._communicator = None
@@ -37,8 +34,7 @@ class Controller:
         self._communicator.sendMessage(encryptedMessage)
 
     def connect(self, ip, password, name, salt):
-        self._password = password
-        self._encryptor = Encryptor.Encryptor(self._password, salt)
+        self._encryptor = Encryptor.Encryptor(password, salt)
         self._name = name
         try:
             self._communicator = Client.ClientCommunicator.ClientCommunicator(self, ip)
@@ -47,8 +43,7 @@ class Controller:
 
     def runServer(self, password, name, salt):
         self._name = name
-        self._password = password
-        self._encryptor = Encryptor.Encryptor(self._password, salt)
+        self._encryptor = Encryptor.Encryptor(password, salt)
         try:
             self._communicator = Server.ServerCommunicator.ServerCommunicator(self)
         except:

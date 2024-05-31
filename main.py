@@ -1,5 +1,6 @@
-from BalvanChatApp import *
+from TkFrontend import *
 from Controller import *
+import tkinter
 
-
-BalvanChatApp = BalvanChatApp.BalvanChatApp()
+controller = Controller()
+frontend = TkFrontend(controller)

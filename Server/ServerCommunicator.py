@@ -3,7 +3,6 @@ import socket
 from Constants import *
 import ClientConnection
 import BaseClasses.BaseCommunicator as BaseCommunicator
-import time
 
 class ServerCommunicator(BaseCommunicator.Communicator):
     def __init__(self, controller):
