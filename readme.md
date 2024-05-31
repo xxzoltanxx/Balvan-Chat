@@ -7,7 +7,7 @@ Balvan Chat is a server/client self-hosted desktop chat application. It ensures 
 ## Features
 
 - Complete End-to-End Encryption: Utilizes Fernet (AES512 + DES) for robust security.
-- Secure Passphrase: The password is never stored within the app; participants must agree on a passphrase via an external method, e.g., in person.
+- Secure Passphrase: The password is never stored within the app; participants must agree on a passphrase via an external method, e.g., in person. The same is done for the salt.
 - User-Friendly Interface: Built with Tkinter GUI for easy interaction.
 - Customizable Usernames: Allows users to choose their display names.
 - Multi-Client Architecture: Supports multiple clients connecting to the server.
