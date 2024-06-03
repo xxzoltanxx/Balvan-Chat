@@ -5,6 +5,25 @@ DEFAULT_PORT=15500
 # in seconds
 SEND_COOLDOWN = 0.02
 PBKDF_ITERATIONS=300000
+APPLICATION_NAME='Balvan Chat'
 
+STATIC_FOLDER= './Assets'
+TEMPLATE_FOLDER='./Templates'
 STATUS_OK = '0'
 STATUS_NOK = '1'
+STATUS_SYSTEM_MESSAGE = 'SYSTEM'
+
+
+NICK_REQUEST_ARGNAME = 'nick'
+PASSWORD_REQUEST_ARGNAME = 'password'
+IP_REQUEST_ARGNAME = 'ip'
+SALT_REQUEST_ARGNAME = 'salt'
+
+IN_CHAT_WINDOW_SIZE = (800,900)
+
+#Keys related to the JSON which is being sent over the network
+CHAT_MSG_NICK_KEY = 'name'
+CHAT_MSG_MESSAGE_KEY = 'message'
+CHAT_MSG_STATUS_KEY = 'status'
+
+DEFAULT_NICK = 'John Doe'

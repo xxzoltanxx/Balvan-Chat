@@ -65,9 +65,9 @@ class ServerCommunicator(BaseCommunicator.Communicator):
         del self._connections[address[0]]
         self._controller.connectionTerminated(address[0])
         data = {
-            "name" : address[0],
-            "message" : '',
-            "status" : STATUS_NOK
+            CHAT_MSG_NICK_KEY : address[0],
+            CHAT_MSG_MESSAGE_KEY : '',
+            CHAT_MSG_STATUS_KEY : STATUS_NOK
         }
         encryptedData = self._controller.getEncryptor().encrypt(data)
 

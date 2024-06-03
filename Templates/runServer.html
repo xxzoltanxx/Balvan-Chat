@@ -1,0 +1,412 @@
+<div class="div">
+    <div class="div-2">
+      <div class="div-3">
+        <div class="column">
+          <img
+            loading="lazy"
+            srcset="Assets/Bear.png"
+            class="img"
+          />
+        </div>
+        <div class="column-2">
+          <div class="div-4">
+            <div class="div-6">Run Server</div>
+            <div class="div-7">
+              Please enter the details of the server and your
+              desired nick below
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="div-8">
+      <div class="div-9">
+        <div class="div-10">SALT:</div>
+        <input  class="form__input" id="salt"  required="" type="password"/>
+      </div>
+      <div class="div-9">
+        <div class="div-10">PASSWORD:</div>
+        <input  class="form__input" id="password"  required="" type="password"/>
+      </div>
+      <div class="div-9">
+        <div class="div-10">NICK:</div>
+        <input type="text" class="form__input" id="nick" required="" />
+      </div>
+    </div>
+    <button id='start_server' class="btn btn-primary">START</button>
+  </div>
+  <script>
+    const button = document.getElementById('start_server');
+
+  button.addEventListener('click', async _ => {
+  try {     
+    const response = await fetch("{{url_for('startServer')}}", {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      body: JSON.stringify({
+        salt: document.getElementById('salt').value,
+        password: document.getElementById('password').value,
+        nick: document.getElementById('nick').value,
+      })
+    })
+    window.location.assign("{{url_for('openChatRoomUI')}}")
+  } catch(err) {
+  }
+
+});
+  </script>
+
+
+  <style>
+    .div {
+      background: radial-gradient(50% 50% at 50% 50%, #ececec 0%, #fff 100%);
+      border-color: rgba(241, 122, 103, 1);
+      border-style: solid;
+      border-width: 9px;
+      display: flex;
+      padding-bottom: 0px;
+      flex-direction: column;
+      height: 96.8vh;
+    }
+    .div-2 {
+      background-color: #f17a67;
+      width: 100%;
+      height:100%;
+      padding: 0 0px 0 0px;
+    }
+    @media (max-width: 991px) {
+      .div-2 {
+        max-width: 100%;
+        padding-left: 0px;
+      }
+    }
+    .div-3 {
+      width:98%;
+      table-layout: fixed;
+    }
+    .column {
+      float: left;
+      line-height: normal;
+      width: 25%;
+      margin-left: 0px;
+      max-width: 20%;
+    }
+    .img {
+      aspect-ratio: 0.91;
+      object-fit: auto;
+      object-position: center;
+      width: 231px;
+      max-width: 100%;
+      flex-grow: 1;
+    }
+    .column-2 {
+      float: left;
+      line-height: normal;
+      width: 75%;
+      max-width:60%;
+      margin-left: 20px;
+    }
+    .div-4 {
+      display: flex;
+      margin-top: 13px;
+      flex-direction: column;
+      color: #efefef;
+    }
+    @media (max-width: 991px) {
+      .div-4 {
+        max-width: 100%;
+      }
+    }
+    .div-5 {
+      border-radius: 12px;
+      background-color: #b42626;
+      align-self: end;
+      width: 43px;
+      height: 43px;
+    }
+    .div-6 {
+      margin-top: 13px;
+      font: 800 60px Roboto, sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-6 {
+        max-width: 100%;
+        font-size: 40px;
+      }
+    }
+    .div-7 {
+      margin-top: 10px;
+      font: 500 16px Roboto, sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-7 {
+        max-width: 100%;
+      }
+    }
+    .div-8 {
+      align-self: center;
+      display: flex;
+      margin-top: 60px;
+      width: 100%;
+      max-width: 830px;
+      flex-direction: column;
+      font-size: 40px;
+      color: #565656;
+      font-weight: 800;
+      white-space: nowrap;
+      text-align: right;
+      gap:20px;
+    }
+    @media (max-width: 991px) {
+      .div-8 {
+        max-width: 100%;
+        margin-top: 40px;
+        white-space: initial;
+      }
+    }
+    .div-9 {
+      align-self:stretch;
+      display: flex;
+      gap: 20px;
+      padding: 0 0px;
+    }
+    @media (max-width: 991px) {
+      .div-9 {
+        flex-wrap: wrap;
+        white-space: initial;
+      }
+    }
+    .div-10 {
+      font-family: Roboto, sans-serif;
+      font-size: 20px;
+      flex-grow: 1;
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    .div-11 {
+      border-radius: 22px;
+      border-color: rgba(187, 187, 187, 1);
+      border-style: solid;
+      border-width: 1px;
+      background-color: #fff;
+      width: 500px;
+      max-width: 100%;
+      height: 59px;
+    }
+    .div-12 {
+      display: flex;
+      margin-top: 26px;
+      gap: 20px;
+      padding: 0 20px;
+    }
+    @media (max-width: 991px) {
+      .div-12 {
+        flex-wrap: wrap;
+        white-space: initial;
+      }
+    }
+    .div-14 {
+      border-radius: 22px;
+      border-color: rgba(187, 187, 187, 1);
+      border-style: solid;
+      border-width: 1px;
+      background-color: #fff;
+      width: 592px;
+      max-width: 100%;
+      height: 61px;
+    }
+    .div-15 {
+      align-self: center;
+      display: flex;
+      margin-top: 26px;
+      gap: 20px;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    @media (max-width: 991px) {
+      .div-15 {
+        flex-wrap: wrap;
+        white-space: initial;
+      }
+    }
+    .div-17 {
+      border-radius: 22px;
+      border-color: rgba(187, 187, 187, 1);
+      border-style: solid;
+      border-width: 1px;
+      background-color: #fff;
+      width: 592px;
+      max-width: 100%;
+      height: 61px;
+    }
+    .div-18 {
+      box-shadow: 3px 8px 4px 0px rgba(0, 0, 0, 0.25);
+      background-color: #f17a67;
+      align-self: end;
+      width: 257px;
+      max-width: 100%;
+      align-items: center;
+      color: #eee;
+      text-align: center;
+      justify-content: center;
+      margin: 0 0 0 0;
+      font: 500 30px Roboto, sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-18 {
+        white-space: initial;
+        margin: 40px 10px 0 0;
+        padding: 0 20px;
+      }
+    }
+    .btn.btn-primary {
+    align-self:flex-end;
+    max-width: 50px;
+    transition: .4s;
+    background: #F17A67;
+    color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #F17A67;
+    margin: 10px;
+    cursor: default;
+}
+.btn.btn-primary:hover {
+    transition: .4s;
+    background: #F17A67;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #F17A67;
+}
+.btn.btn-primary:active {
+    transition: .2s;
+    background: #F17A67;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #F17A67;
+}
+
+.btn.btn-secondary {
+    transition: .4s;
+    background: #FFF;
+    color: #FFA000;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #FFF;
+    margin: 10px;
+}
+.btn.btn-secondary:hover {
+    transition: .4s;
+    background: #FFF;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #FFF;
+}
+.btn.btn-secondary:active {
+    transition: .2s;
+    background: #FFF;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #FFF;
+}
+.btn {
+    min-height:50px;
+    height: 60px;
+    display: inline-block;
+    font: 14px/36px "Roboto", sans-serif !important;
+    padding: 0 16px;
+    border-radius: 2px;
+    min-width: 150px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.btn.btn-tertiary {
+    transition: .4s;
+    background: #FFF;
+    color: #007AFF;
+    border-radius: 6px;
+    border: 1px solid #007AFF;
+    margin: 10px;
+}
+.btn.btn-tertiary:hover {
+    transition: .4s;
+    background: #FFF;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #007AFF;
+}
+.btn.btn-tertiary:active {
+    transition: .2s;
+    background: #FFF;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #007AFF;
+}
+
+.btn.btn-flat {
+    transition: .4s;
+    background: #FFF;
+    color: #FFA000;
+    border-radius: 6px;
+    border: -1px solid rgba(101, 101, 170, 0.12);
+    margin: 10px;
+}
+.btn.btn-flat:hover {
+    transition: .4s;
+    background: rgba(255, 160, 0, 0.12);
+    border: -1px solid rgba(255, 160, 0, 0.12);
+}
+.btn.btn-flat:active {
+    transition: .2s;
+    background: rgba(255, 160, 0, 0.24);
+    border: -1px solid rgba(255, 160, 0, 0.24);
+}
+.btn {
+    height: 36px;
+    display: inline-block;
+    font: 14px/36px "Roboto", sans-serif !important;
+    padding: 0 16px;
+    border-radius: 2px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+
+.form__label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(0rem);
+}
+
+.form__input {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+	margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 70%;
+  display: block;
+  height: 71px;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+  margin-right: 10px;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+
+}
+body
+{
+  margin: 0;
+}
+  </style>

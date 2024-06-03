@@ -25,10 +25,14 @@ class Controller:
 
     def send(self, text):
         data = {
-            "name" : self._name,
-            "message" : text,
-            "status" : Constants.STATUS_OK
+            Constants.CHAT_MSG_NICK_KEY : self._name,
+            Constants.CHAT_MSG_MESSAGE_KEY : text,
+            Constants.CHAT_MSG_STATUS_KEY  : Constants.STATUS_OK
         }
+
+        self._messageLock.acquire()
+        self._messageQueue.put(data)
+        self._messageLock.release()
 
         encryptedMessage = self._encryptor.encrypt(data)
         self._communicator.sendMessage(encryptedMessage)
@@ -52,33 +56,31 @@ class Controller:
 
     def msg_received(self, address, data):
         try:
-            decrypted_json = self._encryptor.decrypt(data)
-            name = decrypted_json['name']
-            msg = decrypted_json['message']
-            status = decrypted_json['status']
-
-            if (status == Constants.STATUS_NOK):
-                self._messageLock.acquire()
-                self._messageQueue.put((name + 'has disconnected.', 'status'))
-                self._messageLock.release()
-            else:
-                self._messageLock.acquire()
-                self._messageQueue.put((name + ":" + msg, 'other'))
-                self._messageLock.release()
+            decryptedData = self._encryptor.decrypt(data)
+            self._messageLock.acquire()
+            self._messageQueue.put(decryptedData)
+            self._messageLock.release()
         except:
             self.reportStatusMessage('Received malformed message. Passphrase mismatch.')
 
     def reportStatusMessage(self, text):
         self._messageLock.acquire()
-        self._messageQueue.put((text, 'status'))
+        self._messageQueue.put({Constants.CHAT_MSG_MESSAGE_KEY: text, Constants.CHAT_MSG_NICK_KEY : Constants.STATUS_SYSTEM_MESSAGE, Constants.CHAT_MSG_STATUS_KEY: Constants.STATUS_SYSTEM_MESSAGE})
         self._messageLock.release()
     
     def connectionTerminated(self, address):
         self._messageLock.acquire()
-        self._messageQueue.put((address + ' has disconnected.', 'status'))
+        self._messageQueue.put({Constants.CHAT_MSG_MESSAGE_KEY: address + ' has disconnected.', Constants.CHAT_MSG_NICK_KEY : Constants.STATUS_SYSTEM_MESSAGE, Constants.CHAT_MSG_STATUS_KEY: Constants.STATUS_SYSTEM_MESSAGE})
         self._messageLock.release()
 
-    def pollStatusMessage(self):
+    def pollMessage(self):
+        #The chat message is passed around the Frontend, Controller and the Encryptor in JSON Format:
+        # msg = {
+        #   Constants.CHAT_MSG_MESSAGE_KEY : value,
+        #   Constants.CHAT_MSG_NICK_KEY : value,
+        #   Constants.CHAT_MSG_STATUS_KEY : value
+        #  }
+
         try:
             self._messageLock.acquire()
             nextItem = self._messageQueue.get(block=False)

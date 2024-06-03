@@ -1,0 +1,249 @@
+<html>
+    <body>
+<div class="div">
+    <div class="div-2">
+      <img
+        loading="lazy"
+        srcset="Assets/Logo.png"
+        class="img"
+      />
+      <div class="div-3">
+        <div class="div-4">
+          <div class="div-5" style="color:rgba(1,1,1,1)">
+            Communicate
+            <span style="color: rgba(241, 122, 103, 1)">securely and easily</span>
+            over the internet.
+            <br />
+            <br />
+          </div>
+          <div class="div-6">
+            A chat client with complete end-to-end encryption.
+            <br />
+            No middlemen. No BS.
+          </div>
+        </div>
+        <div class="div-7">
+          <a href="{{url_for('displayConnectPopup')}}">
+          <button class="btn btn-primary">Connect</button>
+          </a>
+          <a href="{{url_for('displayStartServerPopup')}}">
+          <button class="btn btn-primary">Run Server</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+  <style>
+    .div {
+      background-color: #f17a67;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width:100%;
+      height:100%;
+    }
+    .div-2 {
+      background-image: radial-gradient(#eeeeee,#ffffff);
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      padding: 80px 80px 80px 29px;
+    }
+    @media (max-width: 991px) {
+      .div-2 {
+        max-width: 100%;
+        padding: 0 10px;
+      }
+    }
+    .img {
+      justify-self: left;
+      aspect-ratio: 2.63;
+      object-fit: auto;
+      object-position: left;
+      width: 60%;
+      margin-top: 41px;
+      max-width: 1055px;
+    }
+    @media (max-width: 991px) {
+      .img {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    }
+    .div-3 {
+      display: flex;
+      width: 100%;
+      max-width: 1219px;
+      align-items: flex-start;
+      gap: 20px;
+      justify-content: space-between;
+      margin: 7px 0 59px;
+    }
+    @media (max-width: 991px) {
+      .div-3 {
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+    }
+    .div-4 {
+      width: 60% ;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (max-width: 991px) {
+      .div-4 {
+        max-width: 100%;
+      }
+    }
+    .div-5 {
+      color: #f17a67;
+      font: 800 40px Roboto, sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-5 {
+        max-width: 100%;
+      }
+    }
+    .div-6 {
+      color: #929292;
+      margin-top: 49px;
+      font: 500 16px Roboto, sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-6 {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    }
+    .div-7 {
+      align-self: end;
+      display: flex;
+      margin-top: 74px;
+      flex-direction: column;
+      font-size: 24px;
+      color: #eee;
+      font-weight: 400;
+      text-align: center;
+      text-justify: center;
+      font-family: Roboto, sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-7 {
+        margin-top: 40px;
+      }
+    }
+.btn.btn-primary {
+    transition: .4s;
+    background: #F17A67;
+    color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #F17A67;
+    margin: 10px;
+    cursor: default;
+}
+.btn.btn-primary:hover {
+    transition: .4s;
+    background: #F17A67;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #F17A67;
+}
+.btn.btn-primary:active {
+    transition: .2s;
+    background: #F17A67;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #F17A67;
+}
+
+.btn.btn-secondary {
+    transition: .4s;
+    background: #FFF;
+    color: #FFA000;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #FFF;
+    margin: 10px;
+}
+.btn.btn-secondary:hover {
+    transition: .4s;
+    background: #FFF;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #FFF;
+}
+.btn.btn-secondary:active {
+    transition: .2s;
+    background: #FFF;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #FFF;
+}
+body
+{
+  margin: 0;
+}
+.btn {
+    min-height:50px;
+    height: 60px;
+    display: inline-block;
+    font: 14px/36px "Roboto", sans-serif !important;
+    padding: 0 16px;
+    border-radius: 2px;
+    min-width: 150px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.btn.btn-tertiary {
+    transition: .4s;
+    background: #FFF;
+    color: #007AFF;
+    border-radius: 6px;
+    border: 1px solid #007AFF;
+    margin: 10px;
+}
+.btn.btn-tertiary:hover {
+    transition: .4s;
+    background: #FFF;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #007AFF;
+}
+.btn.btn-tertiary:active {
+    transition: .2s;
+    background: #FFF;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
+    border: 1px solid #007AFF;
+}
+
+.btn.btn-flat {
+    transition: .4s;
+    background: #FFF;
+    color: #FFA000;
+    border-radius: 6px;
+    border: -1px solid rgba(101, 101, 170, 0.12);
+    margin: 10px;
+}
+.btn.btn-flat:hover {
+    transition: .4s;
+    background: rgba(255, 160, 0, 0.12);
+    border: -1px solid rgba(255, 160, 0, 0.12);
+}
+.btn.btn-flat:active {
+    transition: .2s;
+    background: rgba(255, 160, 0, 0.24);
+    border: -1px solid rgba(255, 160, 0, 0.24);
+}
+.btn {
+    height: 36px;
+    display: inline-block;
+    font: 14px/36px "Roboto", sans-serif !important;
+    padding: 0 16px;
+    border-radius: 2px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+  </style>
+  </html>
