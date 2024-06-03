@@ -27,10 +27,10 @@ Note: If a connection cannot be established, ensure port 15500 is open on your r
 
 ## Downloading as a prepackaged .exe file
 
-Head to [Releases]([https://pip.pypa.io/en/stable/](https://github.com/xxzoltanxx/Balvan-Chat/releases)) for a packaged windows binary.
+Head to [Releases](https://pip.pypa.io/en/stable/](https://github.com/xxzoltanxx/Balvan-Chat/releases) for a pre-packaged windows binary.
 There are no prebuilt binaries for Linux at the moment.
 
-The windows binary may not work on older machines, as it was built for my Windows 10 machine.
+NOTE: The windows binary may not work on older machines, as it was built for my Windows 10 machine.
 In that case please consult the next section.
 
 ## Installation and Running
