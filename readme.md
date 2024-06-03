@@ -54,7 +54,7 @@ pip install pyinstaller
 pyinstaller --windowed -i"Bear.ico" --add-data "Assets/*:Assets" --add-data "Templates/*:Templates" BalvanChat.py
 ```
 
-3) Your exe will get packaged inside the "dist/main" folder. Now we only have to place the splash image in the appropriate place:
+3) Your exe will get packaged inside the "dist/main" folder. Now we only have to place the html templates/images in the appropriate place:
 
 ```bash
 -Navigate to dist/_internal.
