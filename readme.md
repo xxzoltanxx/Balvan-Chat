@@ -35,7 +35,7 @@ NOTE: The windows binary may not work on older machines, as it was built for my 
 In that case please consult the next section.
 
 
-## Installation and Running
+## Installation and Running from the git repository
 
 1) Clone the repository.
 2) Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements: 
