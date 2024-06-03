@@ -10,7 +10,7 @@ serving dynamic html pages as a desktop app. This is done through emulating
 different browsers in app mode, and connecting it to a local backend.
 (Via pywebview)
 """
-class UserInterfaceBackend:
+class UserInterface:
     def __init__(self, controller):
         self._controller = controller
         self._window = None
@@ -18,7 +18,7 @@ class UserInterfaceBackend:
     """
     Will initialize the server and all of it's routes.
     """
-    def _setupServer(self):
+    def _setupBackendServer(self):
         server = Flask('Backend', static_folder=Constants.STATIC_FOLDER, template_folder=Constants.TEMPLATE_FOLDER)
         
         """
@@ -132,7 +132,7 @@ class UserInterfaceBackend:
     reserving it for everything related to the window being shown.
     """
     def runAplication(self):
-        self._window = webview.create_window(Constants.APPLICATION_NAME, self._setupServer())
+        self._window = webview.create_window(Constants.APPLICATION_NAME, self._setupBackendServer())
         self._window.frameless = True
         self._window.resizable = False
         webview.start()

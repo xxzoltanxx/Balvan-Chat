@@ -1,6 +1,6 @@
-from UserInterfaceBackend import *
+from UserInterface import *
 from Controller import *
 
 controller = Controller()
-frontend = UserInterfaceBackend(controller)
+frontend = UserInterface(controller)
 frontend.runAplication()
