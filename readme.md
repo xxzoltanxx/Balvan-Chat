@@ -3,7 +3,7 @@
 ![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/Images/balvanlogo.png?raw=true)
 ![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/mainmenu.jpeg?raw=true)
 
-Balvan Chat is a server/client self-hosted desktop chat application. It ensures secure communication with direct connections to the server's IP address, eliminating any middlemen. With complete end-to-end encryption (E2E) using AES512, your data remains private and secure, encrypted with a passphrase known only to the chat participants.
+Balvan Chat is a server/client self-hosted desktop chat application. It ensures secure communication with direct connections to the server's IP address, eliminating any middlemen. With complete end-to-end encryption (E2E) using AES-128, your data remains private and secure, encrypted with a passphrase known only to the chat participants.
 
 ## Features
 
