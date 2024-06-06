@@ -1,6 +1,6 @@
 # Balvan Chat
 
-DISCLAIMER: This app is currently a WIP. Do NOT use it yet for communicating anything which you wouldn't want to be seen.
+DISCLAIMER: This app is currently a WIP. Do NOT use it yet for communicating anything which you wouldn't want to be intercepted in the network.
 
 ![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/Images/balvanlogo.png?raw=true)
 ![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/mainmenu.jpeg?raw=true)
