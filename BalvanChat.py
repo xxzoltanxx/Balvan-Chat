@@ -1,17 +1,17 @@
 from Models import ChatMessages
 from UserInterface.UserInterface import *
-from Providers.ChatProvider import *
+from Presenters.ChatPresenter import *
 
 """
-A facade pattern class which contains (will contain all Providers, Models, and Views)
-Services are for now injected directly inside the providers
+A facade pattern class which contains (will contain all Presenters, Models, and Views)
+Services are for now injected directly inside the presenters
 """
 
 class BalvanChat:
     def __init__(self):
         self._model = ChatMessages.ChatMessages()
-        self._provider = ChatProvider(self._model)
-        self._view = UserInterface(self._provider)
+        self._presenter = ChatPresenter(self._model)
+        self._view = UserInterface(self._presenter)
 
     def run(self):
         self._view.runAplication()

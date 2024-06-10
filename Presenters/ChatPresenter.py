@@ -8,7 +8,7 @@ import Constants
 import threading
 import queue
 
-class ChatProvider:
+class ChatPresenter:
     def __init__(self, chatMessageModel):
         self._text = ''
         self._name = ''

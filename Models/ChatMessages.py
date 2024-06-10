@@ -1,7 +1,7 @@
 import threading
 import queue
 
-#The chat message is passed around the Frontend, Provider and the Encryptor Service in JSON Format:
+#The chat message is passed around the Frontend, Presenter and the Encryptor Service in JSON Format:
 # msg = {
 #   Constants.CHAT_MSG_MESSAGE_KEY : value,
 #   Constants.CHAT_MSG_NICK_KEY : value,
