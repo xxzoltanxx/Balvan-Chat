@@ -1,13 +1,15 @@
 # Balvan Chat
 
+DISCLAIMER: This app is currently a WIP. Do NOT use it yet for communicating anything which you wouldn't want to be intercepted in the network.
+
 ![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/GitImages/balvanlogo.png?raw=true)
 ![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/GitImages/mainmenu.jpeg?raw=true)
 
-Balvan Chat is a server/client self-hosted desktop chat application. It ensures secure communication with direct connections to the server's IP address, eliminating any middlemen. With complete end-to-end encryption (E2E) using AES512, your data remains private and secure, encrypted with a passphrase known only to the chat participants.
+Balvan Chat is a server/client self-hosted desktop chat application. It ensures secure communication with direct connections to the server's IP address, eliminating any middlemen. With complete end-to-end encryption (E2E) using AES-128, your data remains private and secure, encrypted with a passphrase known only to the chat participants.
 
 ## Features
 
-- Complete End-to-End Encryption: Utilizes Fernet (AES512 + DES) for robust security.
+- Complete End-to-End Encryption: Utilizes Fernet (AES-128) for robust security.
 - Secure Passphrase: The password is never stored within the app; participants must agree on a passphrase via an external method, e.g., in person. The same is done for the salt.
 - User-Friendly Interface: Built with PyWebView and HTMX, with Flask in the background, for easy interaction.
 - Customizable Usernames: Allows users to choose their display names.
