@@ -3,7 +3,7 @@ from UserInterface.UserInterface import *
 from Presenters.ChatPresenter import *
 
 """
-A facade pattern class which contains (will contain all Presenters, Models, and Views)
+A facade pattern class which contains (will contain) all Presenters, Models, and Views
 Services are for now injected directly inside the presenters
 """
 
