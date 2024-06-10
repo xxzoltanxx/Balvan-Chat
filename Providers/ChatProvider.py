@@ -11,12 +11,14 @@ import queue
 class ChatProvider:
     def __init__(self, chatMessageModel):
         self._text = ''
-        self._encryptorService = None
         self._name = ''
-        self._communicatorService = None
         self.isConnected = False
         self.shouldExit = False
         self._chatMessages = chatMessageModel
+
+
+        self._communicatorService = None
+        self._encryptorService = None
 
 
     def getEncryptor(self):
