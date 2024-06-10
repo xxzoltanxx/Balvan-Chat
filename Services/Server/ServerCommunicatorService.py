@@ -14,7 +14,6 @@ class ServerCommunicatorService(Services.Interfaces.CommunicatorService.Communic
 
         try:
             self.HOST = socket.gethostbyname(socket.gethostname())
-            self.HOST = '127.0.0.1'
             self._presenter.reportStatusMessage('Your local IP address is: ' + self.HOST)
 
             self._listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
