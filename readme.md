@@ -1,7 +1,7 @@
 # Balvan Chat
 
-![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/Images/balvanlogo.png?raw=true)
-![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/mainmenu.jpeg?raw=true)
+![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/GitImages/balvanlogo.png?raw=true)
+![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/GitImages/mainmenu.jpeg?raw=true)
 
 Balvan Chat is a server/client self-hosted desktop chat application. It ensures secure communication with direct connections to the server's IP address, eliminating any middlemen. With complete end-to-end encryption (E2E) using AES512, your data remains private and secure, encrypted with a passphrase known only to the chat participants.
 
@@ -11,10 +11,10 @@ Balvan Chat is a server/client self-hosted desktop chat application. It ensures 
 - Secure Passphrase: The password is never stored within the app; participants must agree on a passphrase via an external method, e.g., in person. The same is done for the salt.
 - User-Friendly Interface: Built with PyWebView and HTMX, with Flask in the background, for easy interaction.
 - Customizable Usernames: Allows users to choose their display names.
-- Multi-Client Architecture: Supports multiple clients connecting to the server.
+- Server-Client Architecture: Supports multiple clients connecting to the server.
 
 
-![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/mainscreenshot.jpg?raw=true)
+![alt text](https://github.com/xxzoltanxx/Balvan-Chat/blob/master/GitImages/mainscreenshot.jpg?raw=true)
 
 ## Usage
 
@@ -61,14 +61,14 @@ pip install pyinstaller
 2) Inside the directory where the repository is, run:
 
 ```bash
-pyinstaller --windowed -i"Bear.ico" --add-data "Assets/*:Assets" --add-data "Templates/*:Templates" BalvanChat.py
+pyinstaller --windowed -i"Bear.ico" --add-data "UserInterface/Assets/*:UserInterface/Assets" --add-data "UserInterface/Templates/*:UserInterface/Templates" BalvanChat.py
 ```
 
 3) Your exe will get packaged inside the "dist/main" folder. Now we only have to place the html templates/images in the appropriate place:
 
 ```bash
 -Navigate to dist/_internal.
--Place the 'Assets' and 'Templates' folder inside the folder where the .exe is
+-Place the 'UserInterface' folder inside the folder where the .exe is
 ```
 
 Now you can run the app as a standalone app.

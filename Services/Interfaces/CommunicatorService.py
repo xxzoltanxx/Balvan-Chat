@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-class Communicator(ABC):
+class CommunicatorService(ABC):
     @abstractmethod
     def msg_received(self, address, data):
         pass

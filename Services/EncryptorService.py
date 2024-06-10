@@ -5,7 +5,7 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from Constants import *
 import json
 
-class Encryptor:
+class EncryptorService:
     def __init__(self, password, salt):
         encoded_salt = salt.encode('utf-8')
         self._kdf = PBKDF2HMAC(
@@ -16,7 +16,7 @@ class Encryptor:
         )
         key = base64.urlsafe_b64encode(self._kdf.derive(password.encode('utf-8')))
         self._fernet = Fernet(key)
-
+        
 
     #return bytearray
     def encrypt(self, msg):

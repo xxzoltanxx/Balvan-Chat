@@ -1,12 +1,12 @@
 import threading
 import socket
 from Constants import *
-import ClientConnection
-import BaseClasses.BaseCommunicator as BaseCommunicator
+import Infrastructure.ClientConnection as ClientConnection
+import Services.Interfaces.CommunicatorService
 
-class ServerCommunicator(BaseCommunicator.Communicator):
-    def __init__(self, controller):
-        self._controller = controller
+class ServerCommunicatorService(Services.Interfaces.CommunicatorService.CommunicatorService):
+    def __init__(self, provider):
+        self._provider = provider
         self._listenLock = threading.Lock()
         self.receiveLock = threading.Lock()
 
@@ -14,31 +14,30 @@ class ServerCommunicator(BaseCommunicator.Communicator):
 
         try:
             self.HOST = socket.gethostbyname(socket.gethostname())
-            
-            self._controller.reportStatusMessage('Your local IP address is: ' + self.HOST)
+            self._provider.reportStatusMessage('Your local IP address is: ' + self.HOST)
 
             self._listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self._listen_socket.bind((self.HOST, DEFAULT_PORT))
 
-            self._controller.reportStatusMessage('Socket bound to port: ' + str(DEFAULT_PORT))
+            self._provider.reportStatusMessage('Socket bound to port: ' + str(DEFAULT_PORT))
 
             self._listen_socket.listen(5)
 
-            self._controller.isConnected = True
+            self._provider.isConnected = True
 
             t1 = threading.Thread(target = self.listenLoop, daemon=True)
 
             t1.start()
 
         except:
-            self._controller.reportStatusMessage('Failed to run server.')
+            self._provider.reportStatusMessage('Failed to run server.')
             raise
 
 
     def listenLoop(self):
         while True:
             (conn, addr) = self._listen_socket.accept()
-            self._controller.reportStatusMessage('New connection from: ' + addr[0])
+            self._provider.reportStatusMessage('New connection from: ' + addr[0])
             self._listenLock.acquire()
             self._connections[addr[0]] = ClientConnection.ClientConnection(conn, addr, self, self.receiveLock)
             self._listenLock.release()
@@ -53,7 +52,7 @@ class ServerCommunicator(BaseCommunicator.Communicator):
 
     def msg_received(self, address, data):
         self.updateAllClients(address, data)
-        self._controller.msg_received(address, data)
+        self._provider.msg_received(data)
 
     def sendMessage(self, data):
         self._listenLock.acquire()
@@ -63,12 +62,12 @@ class ServerCommunicator(BaseCommunicator.Communicator):
 
     def connectionTerminated(self, address):
         del self._connections[address[0]]
-        self._controller.connectionTerminated(address[0])
+        self._provider.connectionTerminated(address[0])
         data = {
             CHAT_MSG_NICK_KEY : address[0],
             CHAT_MSG_MESSAGE_KEY : '',
             CHAT_MSG_STATUS_KEY : STATUS_NOK
         }
-        encryptedData = self._controller.getEncryptor().encrypt(data)
+        encryptedData = self._provider.getEncryptor().encrypt(data)
 
         self.updateAllClients(address, encryptedData)

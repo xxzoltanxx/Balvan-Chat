@@ -5,14 +5,14 @@ import sys;
 
 """
 A class which is a server for the frontend application.
-It sends data to, and retrieves data from the controller,
+It sends data to, and retrieves data from the Provider,
 serving dynamic html pages as a desktop app. This is done through emulating
 different browsers in app mode, and connecting it to a local backend.
 (Via pywebview)
 """
 class UserInterface:
-    def __init__(self, controller):
-        self._controller = controller
+    def __init__(self, provider):
+        self._provider = provider
         self._window = None
     
     """
@@ -47,7 +47,7 @@ class UserInterface:
             ip = data.get(Constants.IP_REQUEST_ARGNAME)
             salt = data.get(Constants.SALT_REQUEST_ARGNAME)
 
-            self._controller.connect(ip, password, nick, salt)
+            self._provider.connect(ip, password, nick, salt)
             return jsonify(success=True)
         
         @server.route('/openChatScreen', methods=['GET'])
@@ -72,7 +72,7 @@ class UserInterface:
             password = data.get(Constants.PASSWORD_REQUEST_ARGNAME)
             salt = data.get(Constants.SALT_REQUEST_ARGNAME)
 
-            self._controller.runServer(password, nick, salt)
+            self._provider.runServer(password, nick, salt)
             return jsonify(success=True)
 
 
@@ -84,14 +84,14 @@ class UserInterface:
         
         
         """
-        A route by which the frontend polls the messages in the Controller
+        A route by which the frontend polls the messages in the Provider
         message queue.
         """
         @server.route('/pollMessages', methods = ['GET'])
         def pollMessages():
-            if (self._controller.shouldExit):
+            if (self._provider.shouldExit):
                 sys.exit(1)
-            json_message = self._controller.pollMessage()
+            json_message = self._provider.pollMessage()
             if json_message != None:
                 message_txt = json_message[Constants.CHAT_MSG_MESSAGE_KEY]
                 status = json_message[Constants.CHAT_MSG_STATUS_KEY]
@@ -110,7 +110,7 @@ class UserInterface:
 
             message = data.get(Constants.CHAT_MSG_MESSAGE_KEY)
 
-            self._controller.send(message)
+            self._provider.send(message)
             return jsonify(success=True)
 
 
