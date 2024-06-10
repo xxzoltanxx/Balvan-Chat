@@ -1,5 +1,7 @@
 from enum import Enum
 
+TEST_BUILD = False
+
 MAX_SIZE_MESSAGE = 1024
 DEFAULT_PORT=15500
 # in seconds
